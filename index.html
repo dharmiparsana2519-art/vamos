@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>¡Vamos! · IB Spanish ab initio</title>
+<title>¡Vamos! 2.0 · IB Spanish ab initio</title>
 <meta name="description" content="Study IB Spanish ab initio: vocabulary for all five themes, a quiz that remembers your mistakes, oral practice and a Paper 1 writing coach.">
 <meta name="theme-color" content="#fbf5ec" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#130d1f" media="(prefers-color-scheme: dark)">
@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
-/* ¡Vamos! — a warm Spanish sunset. Every colour comes from these tokens. */
+/* ¡Vamos! 2.0 — a warm Spanish sunset. Every colour comes from these tokens. */
 :root {
   --cream: #fbf5ec;
   --cream-2: #f4e8d8;
@@ -174,7 +174,8 @@ em { font-family: var(--display); font-style: italic; font-weight: 400; }
   max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 7px 7px 7px 16px; border-radius: 999px; background: var(--surface-strong);
 }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 1.32rem; letter-spacing: -.01em; min-height: 40px; min-width: 40px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 1.32rem; letter-spacing: -.01em; min-height: 40px; min-width: 40px; white-space: nowrap; flex: none; }
+.logo .ver { display: inline-block; margin-left: 7px; padding: 2px 7px 3px; border-radius: 999px; background: var(--signature); color: #fff; font-family: var(--body); font-size: .68rem; font-weight: 800; letter-spacing: .02em; line-height: 1.2; vertical-align: 5px; }
 .sun-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--signature); background-size: 200% 200%; box-shadow: 0 0 0 4px rgba(255, 107, 53, .14), 0 0 22px rgba(255, 107, 53, .45); animation: sun 6s ease-in-out infinite; flex: none; }
 .sun-dot.small { width: 12px; height: 12px; display: inline-block; vertical-align: -1px; box-shadow: none; }
 @keyframes sun { 0%, 100% { background-position: 0% 50%; transform: scale(1); } 50% { background-position: 100% 50%; transform: scale(1.12); } }
@@ -766,6 +767,8 @@ select { appearance: none; -webkit-appearance: none; background-image: linear-gr
 
 /* ---------- responsive ---------- */
 @media (max-width: 980px) {
+  .nav-links { gap: 2px; }
+  .nav-links a { padding: 0 10px; gap: 6px; }
   .hero { grid-template-columns: 1fr; gap: 10px; }
   .hero-side { padding: 30px 0 40px; max-width: 460px; width: 100%; margin: 0 auto; }
   .wotd { margin: 0 auto; }
@@ -898,7 +901,7 @@ select { appearance: none; -webkit-appearance: none; background-image: linear-gr
 
 <header class="nav-wrap">
   <nav class="nav glass" aria-label="Main">
-    <a class="logo" href="#home" aria-label="¡Vamos! home"><span class="sun-dot" aria-hidden="true"></span><span class="logo-text">¡Vamos!</span></a>
+    <a class="logo" href="#home" aria-label="¡Vamos! 2.0 home"><span class="sun-dot" aria-hidden="true"></span><span class="logo-text">¡Vamos!<span class="ver">2.0</span></span></a>
     <div class="nav-links">
       <a href="#home" data-nav="home" aria-label="Home"><span class="ni" aria-hidden="true">🏠</span><span class="nl">Home</span></a>
       <a href="#vocab" data-nav="vocab" aria-label="Vocabulary"><span class="ni" aria-hidden="true">📚</span><span class="nl">Vocab</span></a>
@@ -913,23 +916,23 @@ select { appearance: none; -webkit-appearance: none; background-image: linear-gr
 <main id="view" tabindex="-1"></main>
 
 <footer class="site-foot">
-  <p><span class="sun-dot small" aria-hidden="true"></span> ¡Vamos! · made for IB Spanish ab initio · progress is saved in this browser.</p>
+  <p><span class="sun-dot small" aria-hidden="true"></span> ¡Vamos! 2.0 · made for IB Spanish ab initio · progress is saved in this browser.</p>
 </footer>
 
 <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
 <canvas id="confetti" aria-hidden="true"></canvas>
-<noscript><div class="noscript">¡Vamos! needs JavaScript to run Python in your browser. Please enable it and reload.</div></noscript>
+<noscript><div class="noscript">¡Vamos! 2.0 needs JavaScript to run Python in your browser. Please enable it and reload.</div></noscript>
 
 <script src="py/pyodide.js"></script>
 <script>
-/* ¡Vamos! — the thin JavaScript shell.
+/* ¡Vamos! 2.0 — the thin JavaScript shell.
  * It only: boots Pyodide, calls ONE Python object (VamosApp), swaps HTML into the page,
  * binds events, runs animations and timers, speaks Spanish, and saves to localStorage.
  * There is no quiz logic, no scoring and no explanations in here: that is all Python. */
 (() => {
   "use strict";
 
-  const BUILD = "d5a1fa4027";
+  const BUILD = "237f5a1314";
   const PY_FILES = ["api.py", "views.py", "core/__init__.py", "core/grammar.py", "core/memory.py", "core/mywords.py", "core/oral.py", "core/quiz.py", "core/vocab.py", "core/wordlists.py", "core/writing.py"];
   const STORE_KEY = "vamos-progress-v1";
   const DRAFT_KEY = "vamos-draft-v1";

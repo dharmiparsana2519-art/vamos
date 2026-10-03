@@ -1,4 +1,4 @@
-"""Play the ¡Vamos! quiz in the IDLE shell: open this file in IDLE and press F5.
+"""Play the ¡Vamos! 2.0 quiz in the IDLE shell: open this file in IDLE and press F5.
 
 It uses exactly the same Python classes as the website (QuizEngine, MistakeMemory…),
 so explanations, review mode and levels all work the same way.
@@ -70,7 +70,7 @@ class ShellQuiz:
     def menu(self) -> str | None:
         due = len(self.memory.due_mistakes())
         level = self.memory.level()
-        print(f"\n{self.LINE}\n¡Vamos! · Level {level.number} {level.name} · {level.xp} XP · {due} to review\n{self.LINE}")
+        print(f"\n{self.LINE}\n¡Vamos! 2.0 · Level {level.number} {level.name} · {level.xp} XP · {due} to review\n{self.LINE}")
         print("  1  Mixed practice")
         print(f"  2  Review my mistakes ({due} due)")
         print("  3  By theme")
@@ -143,7 +143,7 @@ class ShellQuiz:
             print(f"  ✗ {m['big']}: you said '{m['chosen']}', answer '{m['answer']}'")
 
     def run(self) -> None:
-        print("¡Hola! Welcome to the ¡Vamos! shell quiz. Type the number of your answer and press Enter.")
+        print("¡Hola! Welcome to the ¡Vamos! 2.0 shell quiz. Type the number of your answer and press Enter.")
         while True:
             mode = self.menu()
             if mode is None:

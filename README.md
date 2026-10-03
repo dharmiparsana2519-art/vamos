@@ -1,4 +1,4 @@
-# ¡Vamos! · IB Spanish ab initio study site
+# ¡Vamos! 2.0 · IB Spanish ab initio study site
 
 A free, static study website for **IB Diploma Spanish ab initio (SL)** students sitting their exams in **May 2027**.
 

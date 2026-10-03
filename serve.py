@@ -1,4 +1,4 @@
-"""Run ¡Vamos! on your own computer.
+"""Run ¡Vamos! 2.0 on your own computer.
 
 Open this file in IDLE and press F5. The site opens in your browser.
 Press Ctrl+C in the IDLE shell (or close it) to stop the server.
@@ -64,7 +64,7 @@ class SiteServer:
     def start(self) -> None:
         self.httpd, port = self._bind()
         self.url = f"http://localhost:{port}/"
-        print("¡Vamos! is running.")
+        print("¡Vamos! 2.0 is running.")
         print(f"  Open {self.url} in your browser (it should open by itself in a second).")
         print("  Leave this window open while you study.")
         print("  To stop: press Ctrl+C here, or close this shell window.")

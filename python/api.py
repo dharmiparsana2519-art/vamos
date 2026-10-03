@@ -119,7 +119,7 @@ class VamosApp:
         if ok:
             self.mywords.refresh()
         return self._json({"ok": ok, "message": "Backup restored." if ok else
-                           "That file isn't a ¡Vamos! backup, so nothing was changed."})
+                           "That file isn't a ¡Vamos! 2.0 backup, so nothing was changed."})
 
     def state_info(self) -> str:
         level = self.memory.level()
